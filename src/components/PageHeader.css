@@ -7,13 +7,13 @@
 }
 
 .page-header-title {
-  font-size: 22px;
+  font-size: 25.5px;
   font-weight: 700;
   color: var(--color-text);
 }
 
 .page-header-subtitle {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--color-text-muted);
   margin-top: 6px;
   max-width: 560px;

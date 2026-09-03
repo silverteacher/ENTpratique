@@ -28,7 +28,7 @@ export default function Overview({ progress }) {
         subtitle="Un point de départ pour choisir le bon outil numérique selon votre projet pédagogique."
         action={
           <button className="btn btn-primary" onClick={() => navigate('/trouver')}>
-            Trouver un outil
+            J'ai besoin de...
           </button>
         }
       />
@@ -65,7 +65,7 @@ export default function Overview({ progress }) {
           <h2 className="overview-panel-title">Comment démarrer</h2>
           <ol className="overview-steps">
             <li>
-              <strong>Trouvez un outil</strong> — répondez à 4 questions sur votre projet pour recevoir des
+              <strong>J'ai besoin de...</strong> — répondez à 4 questions sur votre projet pour recevoir des
               recommandations ciblées.
             </li>
             <li>

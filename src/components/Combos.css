@@ -17,13 +17,13 @@
 }
 
 .combo-card-title {
-  font-size: 16.5px;
+  font-size: 19px;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .combo-card-description {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--color-text-muted);
   max-width: 480px;
   line-height: 1.5;
@@ -38,7 +38,7 @@
 }
 
 .combo-meta-item {
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--color-text-subtle);
   background: var(--color-bg);
@@ -70,7 +70,7 @@
   border-radius: 50%;
   background: var(--color-primary);
   color: white;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -79,20 +79,20 @@
 }
 
 .combo-step-tool {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--color-text);
 }
 
 .combo-step-action {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-muted);
 }
 
 .combo-step-connector {
   color: var(--color-text-subtle);
   margin-left: 8px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .combo-card-footer {

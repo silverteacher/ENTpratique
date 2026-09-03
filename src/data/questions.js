@@ -1,7 +1,7 @@
 export const QUESTIONS = [
   {
     id: 'need',
-    text: 'Quel est votre besoin principal ?',
+    text: "J'ai besoin de...",
     options: [
       { label: 'Communiquer avec la classe', value: 'communication' },
       { label: 'Créer du contenu', value: 'creation' },

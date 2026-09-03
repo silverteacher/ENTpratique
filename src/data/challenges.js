@@ -5,7 +5,7 @@ export const CHALLENGES = [
     objective: 'Récolter 20 idées en 10 minutes sur un mur collaboratif, puis les faire voter.',
     tools: ['murCollaboratif', 'sondage'],
     difficulty: 'Facile',
-    tips: ['Fixe un minuteur visible', "Interdis la critique pendant la phase de récolte"],
+    tips: ['Fixez un minuteur visible', "Interdisez la critique pendant la phase de récolte"],
   },
   {
     id: 'monde-immersif',
@@ -13,7 +13,7 @@ export const CHALLENGES = [
     objective: 'Faire construire une scène 3D en équipe pour illustrer une notion du programme.',
     tools: ['minetest', 'geogebra'],
     difficulty: 'Difficile',
-    tips: ['Cadre le projet avec un cahier des charges simple', 'Prévois une restitution orale'],
+    tips: ['Cadrez le projet avec un cahier des charges simple', 'Prévoyez une restitution orale'],
   },
   {
     id: 'ecriture-a-plusieurs-mains',
@@ -21,7 +21,7 @@ export const CHALLENGES = [
     objective: "Rédiger collectivement un texte puis le publier sur le blog de classe.",
     tools: ['pad', 'blog'],
     difficulty: 'Intermédiaire',
-    tips: ['Découpe le texte en sections attribuées', 'Prévois un temps de relecture croisée'],
+    tips: ['Découpez le texte en sections attribuées', 'Prévoyez un temps de relecture croisée'],
   },
   {
     id: 'debat-structure',
@@ -29,6 +29,6 @@ export const CHALLENGES = [
     objective: 'Organiser un débat argumenté avec prise de position finale mesurée.',
     tools: ['forum', 'sondage'],
     difficulty: 'Intermédiaire',
-    tips: ['Choisis une question réellement controversée', 'Impose deux arguments minimum par intervention'],
+    tips: ['Choisissez une question réellement controversée', 'Imposez deux arguments minimum par intervention'],
   },
 ];

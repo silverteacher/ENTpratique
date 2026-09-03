@@ -30,18 +30,18 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 15px;
   flex-shrink: 0;
 }
 
 .sidebar-brand-name {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   color: white;
 }
 
 .sidebar-brand-sub {
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--color-text-subtle);
   margin-top: 1px;
 }
@@ -57,7 +57,7 @@
   display: block;
   padding: 9px 12px;
   border-radius: var(--radius-sm);
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 500;
   color: var(--color-sidebar-text);
   text-decoration: none;
@@ -82,7 +82,7 @@
 .sidebar-progress-label {
   display: flex;
   justify-content: space-between;
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--color-text-subtle);
   margin-bottom: 8px;
 }

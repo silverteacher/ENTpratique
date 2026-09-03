@@ -32,13 +32,13 @@
 }
 
 .panel-title {
-  font-size: 22px;
+  font-size: 25.5px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .panel-description {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--color-text-muted);
   line-height: 1.6;
   margin-bottom: 24px;
@@ -49,7 +49,7 @@
 }
 
 .panel-section h3 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -65,7 +65,7 @@
 }
 
 .panel-section li {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--color-text);
   padding-left: 16px;
   position: relative;
@@ -90,7 +90,7 @@
 }
 
 .panel-tag {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 500;
   padding: 5px 10px;
   border-radius: var(--radius-sm);

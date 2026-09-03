@@ -25,7 +25,7 @@
 }
 
 .tool-card-discovered {
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--color-success);
   background: var(--color-success-soft);
@@ -34,13 +34,13 @@
 }
 
 .tool-card-name {
-  font-size: 15.5px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-text);
 }
 
 .tool-card-summary {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--color-text-muted);
   line-height: 1.5;
   flex: 1;
@@ -55,13 +55,13 @@
 }
 
 .tool-card-difficulty {
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 2px;
   color: var(--color-primary);
 }
 
 .tool-card-link {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--color-primary);
 }

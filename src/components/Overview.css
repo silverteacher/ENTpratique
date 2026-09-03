@@ -10,19 +10,19 @@
 }
 
 .overview-stat-value {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 700;
   color: var(--color-text);
 }
 
 .overview-stat-total {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--color-text-subtle);
 }
 
 .overview-stat-label {
-  font-size: 12.5px;
+  font-size: 14.5px;
   color: var(--color-text-muted);
   margin-top: 4px;
 }
@@ -38,7 +38,7 @@
 }
 
 .overview-panel-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 16px;
 }
@@ -53,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .overview-category-label {
@@ -72,7 +72,7 @@
   flex-direction: column;
   gap: 12px;
   padding-left: 18px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--color-text-muted);
   line-height: 1.6;
 }

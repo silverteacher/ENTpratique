@@ -84,8 +84,8 @@ export default function ToolFinder({ progress, onOpenTool }) {
   return (
     <div>
       <PageHeader
-        title="Trouver un outil"
-        subtitle="Répondez à quelques questions pour affiner la recommandation."
+        title="J'ai besoin de..."
+        subtitle="Que puis-je utiliser ? Répondez à quelques questions pour le savoir."
       />
 
       <div className="finder-stepper">

@@ -16,9 +16,9 @@ export const TOOLS = [
     description:
       "La messagerie interne permet d'échanger individuellement ou en groupe avec les élèves et les familles, avec un historique conservé et une traçabilité complète.",
     tips: [
-      "Crée un groupe par classe pour centraliser les annonces",
-      'Utilise les pièces jointes pour partager des consignes',
-      'Active les accusés de lecture pour les messages importants',
+      "Créez un groupe par classe pour centraliser les annonces",
+      'Utilisez les pièces jointes pour partager des consignes',
+      'Activez les accusés de lecture pour les messages importants',
     ],
     useCases: ['Annoncer un devoir', 'Envoyer un retour individuel', 'Communiquer avec les familles'],
   },
@@ -31,9 +31,9 @@ export const TOOLS = [
     description:
       "Un espace visuel partagé où chaque élève peut poster des idées, des images ou des liens. Idéal pour visualiser une réflexion collective en direct.",
     tips: [
-      'Pose une question ouverte comme point de départ',
-      'Organise les contributions par colonnes thématiques',
-      'Utilise le vote pour faire émerger les idées prioritaires',
+      'Posez une question ouverte comme point de départ',
+      'Organisez les contributions par colonnes thématiques',
+      'Utilisez le vote pour faire émerger les idées prioritaires',
     ],
     useCases: ['Remue-méninges collectif', 'Carte des connaissances', 'Retours de fin de séquence'],
   },
@@ -46,9 +46,9 @@ export const TOOLS = [
     description:
       "Environnement de construction 3D façon bac à sable, exploitable pour des projets transdisciplinaires : géométrie, urbanisme, histoire, physique.",
     tips: [
-      'Commence par un monde restreint pour cadrer le projet',
-      'Fixe des contraintes de construction claires',
-      'Prévoit une phase de visite/présentation collective',
+      'Commencez par un monde restreint pour cadrer le projet',
+      'Fixez des contraintes de construction claires',
+      'Prévoyez une phase de visite/présentation collective',
     ],
     useCases: ['Modélisation géométrique', 'Reconstitution historique', 'Projet interdisciplinaire'],
   },
@@ -61,9 +61,9 @@ export const TOOLS = [
     description:
       "Logiciel de géométrie dynamique permettant de construire, manipuler et partager des figures interactives en mathématiques et en physique.",
     tips: [
-      'Partage tes constructions comme point de départ',
-      'Laisse les élèves manipuler avant de conclure',
-      'Combine avec un exercice pour vérifier la compréhension',
+      'Partagez vos constructions comme point de départ',
+      'Laissez les élèves manipuler avant de conclure',
+      'Combinez avec un exercice pour vérifier la compréhension',
     ],
     useCases: ['Démonstration géométrique', 'Exploration de fonctions', 'Modélisation physique'],
   },
@@ -76,9 +76,9 @@ export const TOOLS = [
     description:
       "Générateur d'exercices interactifs avec correction automatique et retours immédiats, exploitable en évaluation formative ou sommative.",
     tips: [
-      'Varie les types de questions (QCM, texte à trous, appariement)',
-      'Rédige des retours explicatifs, pas seulement juste/faux',
-      "Réutilise les résultats pour ajuster ta séquence",
+      'Variez les types de questions (QCM, texte à trous, appariement)',
+      'Rédigez des retours explicatifs, pas seulement juste/faux',
+      "Réutilisez les résultats pour ajuster votre séquence",
     ],
     useCases: ['Contrôle de connaissances', 'Entraînement autonome', 'Diagnostic de début de séquence'],
   },
@@ -91,9 +91,9 @@ export const TOOLS = [
     description:
       "Espace de discussion en fils, adapté aux échanges qui demandent du recul et une participation étalée dans le temps.",
     tips: [
-      'Pose une question qui ouvre le débat plutôt qu\'une question fermée',
-      'Fixe des règles de modération claires dès le départ',
-      'Relance les fils qui stagnent avec une question de suivi',
+      'Posez une question qui ouvre le débat plutôt qu\'une question fermée',
+      'Fixez des règles de modération claires dès le départ',
+      'Relancez les fils qui stagnent avec une question de suivi',
     ],
     useCases: ['Débat argumenté', 'Questions/réponses permanentes', 'Retour réflexif sur un projet'],
   },
@@ -106,9 +106,9 @@ export const TOOLS = [
     description:
       "Journal de bord officiel de la classe : contenu des séances, devoirs, ressources associées. Consultable par les élèves et les familles.",
     tips: [
-      'Renseigne le cahier immédiatement après chaque séance',
-      'Ajoute les ressources utilisées en pièce jointe',
-      'Utilise-le comme trace pour préparer les évaluations',
+      'Renseignez le cahier immédiatement après chaque séance',
+      'Ajoutez les ressources utilisées en pièce jointe',
+      'Utilisez-le comme trace pour préparer les évaluations',
     ],
     useCases: ['Suivi du programme', 'Communication des devoirs', 'Trace pour les absents'],
   },
@@ -121,9 +121,9 @@ export const TOOLS = [
     description:
       "Éditeur de texte collaboratif en temps réel : plusieurs élèves peuvent écrire, corriger et commenter le même document simultanément.",
     tips: [
-      'Répartis les sections avant de démarrer la rédaction',
-      "Utilise les couleurs d'auteur pour suivre les contributions",
-      'Prévois un temps de relecture collective en fin de séance',
+      'Répartissez les sections avant de démarrer la rédaction',
+      "Utilisez les couleurs d'auteur pour suivre les contributions",
+      'Prévoyez un temps de relecture collective en fin de séance',
     ],
     useCases: ['Écriture collaborative', 'Compte-rendu de groupe', 'Rédaction collective de synthèse'],
   },
@@ -136,9 +136,9 @@ export const TOOLS = [
     description:
       "Outil de vote rapide pour recueillir les avis, faire un diagnostic instantané ou prendre une décision collective.",
     tips: [
-      'Limite-toi à des questions courtes et sans ambiguïté',
-      'Affiche les résultats en direct pour dynamiser la séance',
-      "Utilise-le en ouverture pour évaluer les représentations initiales",
+      'Limitez-vous à des questions courtes et sans ambiguïté',
+      'Affichez les résultats en direct pour dynamiser la séance',
+      "Utilisez-le en ouverture pour évaluer les représentations initiales",
     ],
     useCases: ['Évaluation rapide', "Prise de décision collective", 'Diagnostic en début de séquence'],
   },
@@ -151,9 +151,9 @@ export const TOOLS = [
     description:
       "Espace de publication en ligne pour valoriser les travaux d'élèves auprès d'un public élargi (classe, établissement, familles).",
     tips: [
-      'Définis une ligne éditoriale claire avec la classe',
-      'Mets en place un circuit de relecture avant publication',
-      'Varie les formats : texte, image, audio, vidéo',
+      'Définissez une ligne éditoriale claire avec la classe',
+      'Mettez en place un circuit de relecture avant publication',
+      'Variez les formats : texte, image, audio, vidéo',
     ],
     useCases: ['Valorisation de productions', 'Journal de classe', 'Portfolio de projet'],
   },
@@ -166,9 +166,9 @@ export const TOOLS = [
     description:
       "Outil de visioconférence intégré pour les cours à distance, le soutien individualisé ou les réunions avec les familles.",
     tips: [
-      'Teste la connexion et le partage d\'écran avant la séance',
-      'Prévois une modalité de participation pour les élèves silencieux (chat)',
-      'Enregistre la séance si elle doit être revue',
+      'Testez la connexion et le partage d\'écran avant la séance',
+      'Prévoyez une modalité de participation pour les élèves silencieux (chat)',
+      'Enregistrez la séance si elle doit être revue',
     ],
     useCases: ['Classe à distance', 'Réunion avec les familles', 'Soutien individualisé'],
   },
@@ -181,9 +181,9 @@ export const TOOLS = [
     description:
       "Tableaux de bord synthétisant l'usage des outils et les résultats aux évaluations, pour ajuster sa pratique en continu.",
     tips: [
-      'Croise les données de connexion avec les résultats',
-      'Utilise les tendances pour identifier les élèves en difficulté',
-      "Partage une synthèse en conseil de classe",
+      'Croisez les données de connexion avec les résultats',
+      'Utilisez les tendances pour identifier les élèves en difficulté',
+      "Partagez une synthèse en conseil de classe",
     ],
     useCases: ['Suivi de la progression', 'Analyse de résultats', 'Pilotage pédagogique'],
   },
