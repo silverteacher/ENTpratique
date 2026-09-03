@@ -1,0 +1,59 @@
+.library-controls {
+  margin-bottom: 20px;
+}
+
+.library-search {
+  width: 100%;
+  max-width: 320px;
+  padding: 9px 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  margin-bottom: 14px;
+  background: var(--color-surface);
+}
+
+.library-search:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.library-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.library-filter {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: all 0.15s ease;
+}
+
+.library-filter:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.library-filter.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.library-empty {
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+  padding: 20px 0;
+}

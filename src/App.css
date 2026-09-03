@@ -1,0 +1,21 @@
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-content-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 40px 60px;
+}
+
+@media (max-width: 900px) {
+  .app-content-inner {
+    padding: 24px 20px 40px;
+  }
+}

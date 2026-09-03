@@ -1,0 +1,128 @@
+.challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.challenge-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  transition: opacity 0.15s ease;
+}
+
+.challenge-card.done {
+  opacity: 0.65;
+}
+
+.challenge-checkbox {
+  position: relative;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.challenge-checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.challenge-checkmark {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--color-border-strong);
+  transition: all 0.15s ease;
+}
+
+.challenge-checkbox input:checked + .challenge-checkmark {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.challenge-checkbox input:checked + .challenge-checkmark::after {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.challenge-body {
+  flex: 1;
+}
+
+.challenge-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.challenge-title {
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.challenge-difficulty {
+  font-size: 11.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.challenge-objective {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.challenge-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.challenge-tool-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.challenge-tips {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+}
+
+.challenge-tips li {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  padding-left: 14px;
+  position: relative;
+}
+
+.challenge-tips li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-subtle);
+}

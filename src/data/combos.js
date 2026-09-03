@@ -1,0 +1,67 @@
+export const COMBOS = [
+  {
+    id: 'debat-numerique',
+    name: 'Débat numérique',
+    tools: ['murCollaboratif', 'forum', 'sondage'],
+    description: 'Faire émerger des idées, les confronter, puis trancher collectivement.',
+    steps: [
+      { tool: 'murCollaboratif', action: 'Récolter les premières idées' },
+      { tool: 'forum', action: 'Approfondir les arguments' },
+      { tool: 'sondage', action: 'Voter sur la position finale' },
+    ],
+    difficulty: 'Intermédiaire',
+    duration: '2 séances',
+  },
+  {
+    id: 'ecriture-collective',
+    name: 'Écriture collective',
+    tools: ['pad', 'blog', 'messagerie'],
+    description: 'Rédiger à plusieurs, relire ensemble, puis publier et diffuser.',
+    steps: [
+      { tool: 'pad', action: 'Rédiger en simultané' },
+      { tool: 'blog', action: 'Publier la version finale' },
+      { tool: 'messagerie', action: "Informer la classe et les familles" },
+    ],
+    difficulty: 'Intermédiaire',
+    duration: '3 séances',
+  },
+  {
+    id: 'projet-immersif',
+    name: 'Projet immersif',
+    tools: ['minetest', 'geogebra', 'cahierTextes'],
+    description: 'Construire un objet, en formaliser la logique, puis documenter la démarche.',
+    steps: [
+      { tool: 'minetest', action: 'Construire le projet en 3D' },
+      { tool: 'geogebra', action: 'Modéliser les proportions et calculs' },
+      { tool: 'cahierTextes', action: 'Consigner les étapes de réalisation' },
+    ],
+    difficulty: 'Avancé',
+    duration: '4+ séances',
+  },
+  {
+    id: 'classe-a-distance',
+    name: 'Classe à distance complète',
+    tools: ['visio', 'messagerie', 'cahierTextes'],
+    description: 'Assurer la continuité pédagogique à distance avec une trace exploitable.',
+    steps: [
+      { tool: 'visio', action: 'Animer la séance en direct' },
+      { tool: 'cahierTextes', action: 'Consigner le contenu et les devoirs' },
+      { tool: 'messagerie', action: 'Répondre aux questions individuelles' },
+    ],
+    difficulty: 'Débutant',
+    duration: '1 séance',
+  },
+  {
+    id: 'evaluation-complete',
+    name: 'Cycle d\'évaluation complet',
+    tools: ['exercices', 'statistiques', 'sondage'],
+    description: 'Évaluer, analyser les résultats, puis ajuster la suite de la séquence.',
+    steps: [
+      { tool: 'exercices', action: 'Faire passer une évaluation auto-corrigée' },
+      { tool: 'statistiques', action: 'Analyser les résultats de la classe' },
+      { tool: 'sondage', action: 'Recueillir le ressenti des élèves' },
+    ],
+    difficulty: 'Intermédiaire',
+    duration: '2 séances',
+  },
+];
