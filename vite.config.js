@@ -7,7 +7,4 @@ export default defineConfig(({ command }) => ({
   // GitHub Pages serves this project at https://<user>.github.io/ENTpratique/,
   // so production assets need that prefix. The dev server stays at the root.
   base: command === 'build' ? '/ENTpratique/' : '/',
-  build: {
-    outDir: 'docs',
-  },
 }))

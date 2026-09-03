@@ -28,19 +28,22 @@ L'application est disponible sur `http://localhost:5173`.
 ### Autres commandes
 
 ```bash
-npm run build    # build de production dans docs/
+npm run build    # build de production dans dist/
 npm run preview  # prévisualiser le build de production
 npm run lint      # linter le code
 ```
 
-## Déploiement (GitHub Pages)
+## Déploiement (GitHub Pages via GitHub Actions)
 
-Le build de production est généré dans `docs/` (et non `dist/`) pour permettre une publication directe via **GitHub Pages → Deploy from a branch**, sans étape de build côté serveur.
+Le déploiement est automatique : à chaque push sur `main`, le workflow `.github/workflows/deploy.yml` build le projet et publie le résultat sur GitHub Pages. Aucun fichier compilé n'est committé dans le dépôt.
 
-1. Committer le contenu à jour de `docs/` après chaque `npm run build` sur la branche principale.
-2. Dans les paramètres du dépôt : **Settings → Pages → Source: Deploy from a branch**, choisir la branche `main` et le dossier `/docs`.
-3. Le site est servi sous `https://<utilisateur>.github.io/ENTpratique/` — le `base` configuré dans `vite.config.js` correspond à ce chemin. Si le dépôt est renommé, mettre à jour `base` en conséquence.
-4. Le routing utilise `HashRouter` (URLs en `#/...`) : aucune configuration serveur supplémentaire n'est nécessaire pour que les liens directs fonctionnent sur un hébergement statique.
+Configuration à faire une seule fois : **Settings → Pages → Source: GitHub Actions**.
+
+Le site est servi sous `https://<utilisateur>.github.io/ENTpratique/` — le `base` configuré dans `vite.config.js` correspond à ce chemin. Si le dépôt est renommé, mettre à jour `base` en conséquence.
+
+Le routing utilise `HashRouter` (URLs en `#/...`) : aucune configuration serveur supplémentaire n'est nécessaire pour que les liens directs fonctionnent sur un hébergement statique.
+
+Pour déclencher un déploiement manuellement sans nouveau commit : onglet **Actions** du dépôt → workflow *Deploy to GitHub Pages* → **Run workflow**.
 
 ## Structure du projet
 
