@@ -1,9 +1,9 @@
 export const CATEGORIES = {
-  communication: { label: 'Communication', color: '#2563EB' },
-  collaboration: { label: 'Collaboration', color: '#059669' },
-  creation: { label: 'Création', color: '#D97706' },
-  evaluation: { label: 'Évaluation', color: '#7C3AED' },
-  discussion: { label: 'Discussion', color: '#DB2777' },
+  communication: { label: 'Communication', color: '#4A72A3' },
+  collaboration: { label: 'Collaboration', color: '#4C8C5C' },
+  creation: { label: 'Création', color: '#CC8A2C' },
+  evaluation: { label: 'Évaluation', color: '#8B5FBF' },
+  discussion: { label: 'Discussion', color: '#C2547A' },
 };
 
 export const TOOLS = [
