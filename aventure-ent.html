@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventure ENT - Découvre les outils pédagogiques</title>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #5B4FDD;
+  --secondary: #FF6B9D;
+  --accent: #FFA500;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --light-bg: #F5F5F7;
+  --dark-text: #1A1A2E;
+  --light-text: #666;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.logo span {
+  color: var(--secondary);
+}
+
+.user-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--light-bg);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.stat .icon {
+  font-size: 20px;
+}
+
+.xp-bar {
+  width: 200px;
+  height: 8px;
+  background: var(--light-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  transition: width 0.3s ease;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.nav-tab {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 20px;
+  border: none;
+  background: var(--light-bg);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--light-text);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-tab.active {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.nav-tab:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.quest-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.quest-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--secondary), transparent);
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.quest-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.quest-icon {
+  font-size: 40px;
+}
+
+.quest-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.quest-description {
+  color: var(--light-text);
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.question-card {
+  background: var(--light-bg);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.question-text {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--dark-text);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 15px 20px;
+  border: 2px solid transparent;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.option-btn:hover {
+  border-color: var(--primary);
+  background: rgba(91, 79, 221, 0.05);
+  transform: translateX(5px);
+}
+
+.option-btn.selected {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #667eea);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(91, 79, 221, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+}
+
+.recommendation {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.recommendation-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.recommendation-description {
+  font-size: 18px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.tool-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 15px;
+  border-left: 5px solid var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.tool-icon {
+  font-size: 40px;
+}
+
+.tool-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.tool-description {
+  color: var(--light-text);
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.tool-tips {
+  background: var(--light-bg);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.tips-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--dark-text);
+}
+
+.tips-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tips-list li {
+  padding: 5px 0 5px 25px;
+  position: relative;
+  color: var(--light-text);
+  font-size: 14px;
+}
+
+.tips-list li::before {
+  content: '💡';
+  position: absolute;
+  left: 0;
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.combo-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.combo-card::before {
+  content: '✨';
+  position: absolute;
+  font-size: 80px;
+  opacity: 0.1;
+  right: -20px;
+  top: -20px;
+}
+
+.combo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.combo-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.combo-tools {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.combo-tool-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.combo-description {
+  font-size: 13px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.challenge-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 5px solid var(--warning);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.challenge-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.challenge-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark-text);
+}
+
+.challenge-description {
+  color: var(--light-text);
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.challenge-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.difficulty-badge {
+  background: var(--light-bg);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.xp-reward {
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.surprise-section {
+  background: linear-gradient(135deg, #FF6B9D, #FFA500);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.surprise-section::after {
+  content: '✨';
+  position: absolute;
+  font-size: 120px;
+  opacity: 0.1;
+  right: -30px;
+  bottom: -30px;
+}
+
+.surprise-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.surprise-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.surprise-text {
+  font-size: 16px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .user-stats {
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .quest-section {
+    padding: 20px;
+  }
+
+  .combo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-tabs {
+    overflow-x: auto;
+  }
+
+  .nav-tab {
+    min-width: 100px;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+// Données des outils ENT
+const TOOLS = {
+  messagerie: {
+    id: 'messagerie',
+    name: 'Messagerie',
+    icon: '💬',
+    category: 'communication',
+    difficulty: 1,
+    description: 'Communiquer avec ta classe en temps réel',
+    tips: ['Crée un groupe de classe pour tous les messages', 'Utilise les pièces jointes pour partager des ressources'],
+    useCases: ['Annoncer un devoir', 'Envoyer des feedbacks individuels']
+  },
+  mutCollab: {
+    id: 'mutCollab',
+    name: 'Mur Collaboratif',
+    icon: '🧱',
+    category: 'collaboration',
+    difficulty: 2,
+    description: 'Brainstorme avec tes élèves en temps réel',
+    tips: ['Pose une question et laisse les élèves répondre sur le mur', 'Votez ensemble pour les meilleures idées'],
+    useCases: ['Remue-méninges collectif', 'Créer une fresque interactive']
+  },
+  minetest: {
+    id: 'minetest',
+    name: 'Minetest',
+    icon: '⛏️',
+    category: 'creation',
+    difficulty: 3,
+    description: 'Crée des mondes 3D immersifs avec tes élèves',
+    tips: ['Commencez par explorer un monde simple', 'Créez des défis de construction'],
+    useCases: ['Projet de mathématiques en 3D', 'Histoire/géographie immersive']
+  },
+  geogebra: {
+    id: 'geogebra',
+    name: 'GeoGebra',
+    icon: '📐',
+    category: 'creation',
+    difficulty: 2,
+    description: 'Crée des figures géométriques interactives',
+    tips: ['Partage tes créations avec les élèves', 'Laisse-les modifier et explorer'],
+    useCases: ['Mathématiques géométriques', 'Démonstrations dynamiques']
+  },
+  exercices: {
+    id: 'exercices',
+    name: 'Exercices',
+    icon: '✏️',
+    category: 'evaluation',
+    difficulty: 2,
+    description: 'Crée des quiz et exercices auto-corrigés',
+    tips: ['Mélange les types de questions', 'Utilise les retours pour guider les élèves'],
+    useCases: ['Quiz de contrôle', 'Entraînement en auto-correction']
+  },
+  forum: {
+    id: 'forum',
+    name: 'Forum',
+    icon: '💭',
+    category: 'discussion',
+    difficulty: 2,
+    description: 'Créez un espace de discussion asynchrone',
+    tips: ['Posez une question engageante', 'Modérez les discussions respectueuses'],
+    useCases: ['Débats pédagogiques', 'Questions/réponses permanentes']
+  },
+  cahierTextes: {
+    id: 'cahierTextes',
+    name: 'Cahier de textes',
+    icon: '📝',
+    category: 'communication',
+    difficulty: 1,
+    description: 'Enregistre tes devoirs et leçons',
+    tips: ['Mets à jour chaque jour', 'Ajoute des ressources complémentaires'],
+    useCases: ['Documenter le programme', 'Suivre la progression']
+  },
+  pad: {
+    id: 'pad',
+    name: 'Pad',
+    icon: '📄',
+    category: 'collaboration',
+    difficulty: 2,
+    description: 'Écrivez ensemble en temps réel',
+    tips: ['Parfait pour les projets textuels', 'Tous les élèves voient les modifications'],
+    useCases: ['Écriture collaborative', 'Création collective de contenu']
+  },
+  sondage: {
+    id: 'sondage',
+    name: 'Sondage',
+    icon: '📊',
+    category: 'evaluation',
+    difficulty: 1,
+    description: 'Recueille rapidement les avis',
+    tips: ['Pose des questions claires', 'Utilisez pour faire du diagnostic'],
+    useCases: ['Évaluation rapide', 'Recueillir des avis']
+  },
+  blog: {
+    id: 'blog',
+    name: 'Blog',
+    icon: '📰',
+    category: 'creation',
+    difficulty: 2,
+    description: 'Crée un espace de publication pour ta classe',
+    tips: ['Publie les meilleures productions élèves', 'Crée une communauté de lecteurs'],
+    useCases: ['Partager des créations', 'Journal de classe en ligne']
+  },
+  visio: {
+    id: 'visio',
+    name: 'Visio-conférence',
+    icon: '📹',
+    category: 'communication',
+    difficulty: 2,
+    description: 'Organise des classes virtuelles',
+    tips: ['Testez la connexion avant', 'Utilisez pour les explications en direct'],
+    useCases: ['Classes virtuelles', 'Réunions parents']
+  },
+  statistiques: {
+    id: 'statistiques',
+    name: 'Statistiques',
+    icon: '📈',
+    category: 'evaluation',
+    difficulty: 2,
+    description: 'Analyse les données de ta classe',
+    tips: ['Voyez les tendances d\'apprentissage', 'Adaptez selon les résultats'],
+    useCases: ['Suivre les progrès', 'Analyser les résultats']
+  }
+};
+
+const QUESTIONS = [
+  {
+    id: 1,
+    text: 'Quel est ton besoin principal ?',
+    options: [
+      { text: 'Communiquer avec ma classe', value: 'communication' },
+      { text: 'Créer du contenu innovant', value: 'creation' },
+      { text: 'Faire collaborer les élèves', value: 'collaboration' },
+      { text: 'Évaluer les apprentissages', value: 'evaluation' }
+    ]
+  },
+  {
+    id: 2,
+    text: 'Combien d\'élèves impliqués ?',
+    options: [
+      { text: 'Travail individuel', value: 'individual' },
+      { text: 'Petit groupe (2-5)', value: 'small' },
+      { text: 'Toute la classe (15+)', value: 'large' }
+    ]
+  },
+  {
+    id: 3,
+    text: 'Veux-tu du contenu interactif ?',
+    options: [
+      { text: 'Oui, très ludique !', value: 'interactive' },
+      { text: 'Un peu, simplement', value: 'simple' },
+      { text: 'Non, je préfère les textes', value: 'text' }
+    ]
+  },
+  {
+    id: 4,
+    text: 'Combien de temps disponible ?',
+    options: [
+      { text: 'Rapide (15 min)', value: 'quick' },
+      { text: 'Moyen (30-45 min)', value: 'medium' },
+      { text: 'Long projet (plusieurs heures)', value: 'long' }
+    ]
+  }
+];
+
+const TOOL_COMBOS = [
+  {
+    name: 'Débat numérique',
+    tools: ['mutCollab', 'forum', 'sondage'],
+    description: 'Brainstorm → Débat → Vote des meilleurs idées',
+    difficulty: 'Moyen',
+    xpReward: 100
+  },
+  {
+    name: 'Création collaborative',
+    tools: ['pad', 'blog', 'messagerie'],
+    description: 'Écrivez ensemble → Publiez → Partagez avec la classe',
+    difficulty: 'Moyen',
+    xpReward: 100
+  },
+  {
+    name: 'Projet immersif',
+    tools: ['minetest', 'geogebra', 'cahierTextes'],
+    description: 'Construisez → Découvrez → Documentez',
+    difficulty: 'Difficile',
+    xpReward: 150
+  },
+  {
+    name: 'Classe virtuelle',
+    tools: ['visio', 'messagerie', 'cahierTextes'],
+    description: 'Connectez-vous → Enseignez → Laissez une trace',
+    difficulty: 'Facile',
+    xpReward: 50
+  },
+  {
+    name: 'Évaluation complète',
+    tools: ['exercices', 'statistiques', 'sondage'],
+    description: 'Testez → Analysez → Adaptez',
+    difficulty: 'Moyen',
+    xpReward: 120
+  }
+];
+
+const CHALLENGES = [
+  {
+    id: 1,
+    title: '🚀 Défi du jour: Brainstorm créatif',
+    description: 'Lance un brainstorm avec Mur Collaboratif + Sondage',
+    difficulty: 'Facile',
+    xpReward: 50,
+    tips: ['Crée une question ouverture', 'Utilisez le vote pour les meilleures idées']
+  },
+  {
+    id: 2,
+    title: '🎨 Projet créatif: Monde immersif',
+    description: 'Crée un monde avec Minetest ou GeoGebra',
+    difficulty: 'Difficile',
+    xpReward: 150,
+    tips: ['Commencez simple', 'Laissez les élèves explorer']
+  },
+  {
+    id: 3,
+    title: '📚 Écriture collaborative',
+    description: 'Crée un document collectif avec Pad puis publie sur Blog',
+    difficulty: 'Moyen',
+    xpReward: 100,
+    tips: ['Divisez par chapitre', 'Relisez ensemble avant publication']
+  },
+  {
+    id: 4,
+    title: '🏆 Débat numérique',
+    description: 'Organise un débat structuré avec Forum + Sondage',
+    difficulty: 'Moyen',
+    xpReward: 100,
+    tips: ['Posez une question controverse', 'Modérez respectueusement']
+  }
+];
+
+const SURPRISES = [
+  'Et si tu mélangeais Minetest + Histoire pour un projet immersif ?',
+  'Essaie le Pad pour les contrôles en classe - c\'est collaboratif !',
+  'GeoGebra + Exercices = une belle démonstration interactive',
+  'Mur Collaboratif est parfait pour les remue-méninges en 5 min',
+  'Crée un blog pour valoriser les meilleures créations élèves',
+  'Forum + Statistiques : voyez les tendances des discussions',
+  'Minetest : tes élèves construisent avec des maths (volumes, distances)',
+  'Sondage + Messagerie : votez ensemble sur la direction du cours',
+  'Pad pour l\'écriture collaborative - tous écrivent simultanément !',
+  'GeoGebra comme démonstration avant l\'exercice auto-corrigé'
+];
+
+const LEVELS = [
+  { level: 1, xpRequired: 0, title: 'Novice', icon: '🌱' },
+  { level: 2, xpRequired: 100, title: 'Apprenti', icon: '📚' },
+  { level: 3, xpRequired: 250, title: 'Explorateur', icon: '🔭' },
+  { level: 4, xpRequired: 450, title: 'Expert', icon: '⭐' },
+  { level: 5, xpRequired: 700, title: 'Maître', icon: '👑' }
+];
+
+// État
+const state = {
+  currentTab: 'quest',
+  userLevel: 1,
+  userXP: 0,
+  streak: 3,
+  discoveredTools: new Set(['messagerie']),
+  toolsWithBadges: {},
+  questAnswers: {},
+  completedChallenges: new Set(),
+  dailySurprise: null
+};
+
+// Utilitaires
+function getLevel(xp) {
+  for (let i = LEVELS.length - 1; i >= 0; i--) {
+    if (xp >= LEVELS[i].xpRequired) {
+      return LEVELS[i];
+    }
+  }
+  return LEVELS[0];
+}
+
+function getXPToNextLevel(xp) {
+  const currentLevel = getLevel(xp);
+  const nextLevel = LEVELS[currentLevel.level] || LEVELS[LEVELS.length - 1];
+  return nextLevel.xpRequired - xp;
+}
+
+function getRandomSurprise() {
+  return SURPRISES[Math.floor(Math.random() * SURPRISES.length)];
+}
+
+function getSuggestedTools(answers) {
+  const suggestions = [];
+  const needType = answers[1] || 'communication';
+
+  Object.values(TOOLS).forEach(tool => {
+    if (tool.category === needType) {
+      suggestions.push(tool);
+    }
+  });
+
+  return suggestions.sort((a, b) => a.difficulty - b.difficulty);
+}
+
+function addXP(amount) {
+  state.userXP += amount;
+  const newLevel = getLevel(state.userXP);
+  if (newLevel.level > state.userLevel) {
+    state.userLevel = newLevel.level;
+    return true;
+  }
+  return false;
+}
+
+// Rendu
+function renderHeader() {
+  const currentLevel = getLevel(state.userXP);
+  const nextLevel = LEVELS[Math.min(currentLevel.level, LEVELS.length - 1)];
+  const xpToNext = getXPToNextLevel(state.userXP);
+  const xpInLevel = state.userXP - (LEVELS[currentLevel.level - 1]?.xpRequired || 0);
+  const xpForLevel = (nextLevel.xpRequired || state.userXP + 1000) - (LEVELS[currentLevel.level - 1]?.xpRequired || 0);
+  const xpPercentage = (xpInLevel / xpForLevel) * 100;
+
+  return `
+    <div class="header">
+      <div class="logo">🎓 Aventure <span>ENT</span></div>
+      <div class="user-stats">
+        <div class="stat">
+          <div class="icon">${currentLevel.icon}</div>
+          <div style="font-size: 12px;"><strong>${currentLevel.title}</strong><br/>Niveau ${currentLevel.level}</div>
+        </div>
+        <div class="stat">
+          <div class="icon">⭐</div>
+          <div>${state.userXP} XP</div>
+        </div>
+        <div class="stat">
+          <div class="icon">🔥</div>
+          <div>${state.streak} jours</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderNavTabs() {
+  const tabs = [
+    { id: 'quest', label: '🗺️ Quête' },
+    { id: 'combos', label: '✨ Combos' },
+    { id: 'challenges', label: '🚀 Challenges' },
+    { id: 'surprise', label: '🎁 Surprise' }
+  ];
+
+  return `
+    <div class="nav-tabs">
+      ${tabs.map(tab => `
+        <button class="nav-tab ${state.currentTab === tab.id ? 'active' : ''}"
+                onclick="switchTab('${tab.id}')">
+          ${tab.label}
+        </button>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderQuestTab() {
+  if (Object.keys(state.questAnswers).length === 0) {
+    return renderQuestionnaire();
+  } else {
+    return renderQuestResults();
+  }
+}
+
+function renderQuestionnaire() {
+  return `
+    <div class="quest-section slide-in">
+      <div class="quest-header">
+        <div class="quest-icon">🗺️</div>
+        <div>
+          <div class="quest-title">Quelle est ton aventure aujourd'hui ?</div>
+          <div class="quest-description">Réponds à quelques questions pour trouver l'outil parfait</div>
+        </div>
+      </div>
+
+      ${QUESTIONS.map((q, idx) => `
+        <div class="question-card">
+          <div class="question-text">${idx + 1}. ${q.text}</div>
+          <div class="options">
+            ${q.options.map(opt => `
+              <button class="option-btn ${state.questAnswers[q.id] === opt.value ? 'selected' : ''}"
+                      onclick="answerQuestion(${q.id}, '${opt.value}')">
+                ${opt.text}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+
+      <button class="btn btn-primary" onclick="completeQuest()"
+              ${Object.keys(state.questAnswers).length < QUESTIONS.length ? 'disabled' : ''}>
+        🎯 Voir mes recommandations
+      </button>
+    </div>
+  `;
+}
+
+function renderQuestResults() {
+  const suggestedTools = getSuggestedTools(state.questAnswers);
+  const needLabels = {
+    'communication': 'communiquer',
+    'creation': 'créer du contenu',
+    'collaboration': 'faire collaborer',
+    'evaluation': 'évaluer'
+  };
+
+  return `
+    <div class="quest-section slide-in">
+      <div class="recommendation">
+        <div class="recommendation-title">🎯 Tes outils recommandés</div>
+        <div class="recommendation-description">
+          Basé sur tes réponses, voici les meilleures options pour ${needLabels[state.questAnswers[1]] || 'ton besoin'}
+        </div>
+      </div>
+
+      ${suggestedTools.slice(0, 3).map(tool => `
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon">${tool.icon}</div>
+            <div>
+              <div class="tool-name">${tool.name}</div>
+              <div style="color: #666; font-size: 13px;">
+                Difficulté: ${'⭐'.repeat(tool.difficulty)}
+              </div>
+            </div>
+          </div>
+          <div class="tool-description">${tool.description}</div>
+          <div class="tool-tips">
+            <div class="tips-title">Astuces d'utilisation:</div>
+            <ul class="tips-list">
+              ${tool.tips.map(tip => `<li>${tip}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="tool-tips" style="background: #E8F5E9; margin-top: 15px;">
+            <div class="tips-title">Cas d'usage parfait:</div>
+            <ul class="tips-list">
+              ${tool.useCases.map(use => `<li style="color: #2E7D32;">${use}</li>`).join('')}
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="discoverTool('${tool.id}')">
+            ${state.discoveredTools.has(tool.id) ? '✅ Déjà découvert' : '🔍 Découvrir'}
+          </button>
+        </div>
+      `).join('')}
+
+      <button class="btn btn-primary" onclick="resetQuest()">
+        🔄 Nouveau questionnaire
+      </button>
+    </div>
+  `;
+}
+
+function renderCombosTab() {
+  return `
+    <div class="quest-section slide-in">
+      <div class="quest-header">
+        <div class="quest-icon">✨</div>
+        <div>
+          <div class="quest-title">Combos Magiques</div>
+          <div class="quest-description">Découvre comment combiner 2-3 outils pour des superpouvoir pédagogiques</div>
+        </div>
+      </div>
+
+      <div class="combo-grid">
+        ${TOOL_COMBOS.map(combo => `
+          <div class="combo-card" onclick="unlockCombo('${combo.name}')">
+            <div class="combo-name">${combo.name}</div>
+            <div class="combo-tools">
+              ${combo.tools.map(toolId => `
+                <div class="combo-tool-badge">${TOOLS[toolId].icon}</div>
+              `).join('')}
+            </div>
+            <div class="combo-description">${combo.description}</div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); position: relative; z-index: 1;">
+              <span style="background: rgba(255,255,255,0.3); padding: 4px 8px; border-radius: 5px; font-size: 12px;">
+                +${combo.xpReward} XP
+              </span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderChallengesTab() {
+  return `
+    <div class="quest-section slide-in">
+      <div class="quest-header">
+        <div class="quest-icon">🚀</div>
+        <div>
+          <div class="quest-title">Challenges Pédagogiques</div>
+          <div class="quest-description">Des défis pour tester ta créativité et ton innovation</div>
+        </div>
+      </div>
+
+      ${CHALLENGES.map(challenge => `
+        <div class="challenge-card">
+          <div class="challenge-title">${challenge.title}</div>
+          <div class="challenge-description">${challenge.description}</div>
+          <div class="challenge-meta">
+            <div class="difficulty-badge">
+              ${challenge.difficulty === 'Facile' ? '🟢' : challenge.difficulty === 'Moyen' ? '🟡' : '🔴'}
+              ${challenge.difficulty}
+            </div>
+            <div class="xp-reward">⭐ ${challenge.xpReward} XP</div>
+          </div>
+          <div class="tool-tips">
+            <div class="tips-title">Conseils:</div>
+            <ul class="tips-list">
+              ${challenge.tips.map(tip => `<li>${tip}</li>`).join('')}
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="completeChallenge(${challenge.id})">
+            ${state.completedChallenges.has(challenge.id) ? '✅ Complété' : '🎯 Relever'}
+          </button>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderSurpriseTab() {
+  const surprise = state.dailySurprise || getRandomSurprise();
+
+  return `
+    <div class="quest-section slide-in">
+      <div class="surprise-section">
+        <div class="surprise-icon">🎁</div>
+        <div class="surprise-title">Surprise du jour</div>
+        <div class="surprise-text">${surprise}</div>
+        <button class="btn btn-secondary" onclick="getNewSurprise()">
+          🎲 Nouvelle surprise
+        </button>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <h3 style="color: white; margin-bottom: 15px;">✨ Outils découverts</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px;">
+          ${Array.from(state.discoveredTools).map(toolId => {
+            const tool = TOOLS[toolId];
+            return `
+              <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="font-size: 30px; margin-bottom: 10px;">${tool.icon}</div>
+                <div style="font-weight: 600; color: #333; font-size: 13px;">${tool.name}</div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Interactions
+function switchTab(tabId) {
+  state.currentTab = tabId;
+  render();
+}
+
+function answerQuestion(questionId, value) {
+  state.questAnswers[questionId] = value;
+  render();
+}
+
+function completeQuest() {
+  addXP(50);
+  render();
+}
+
+function resetQuest() {
+  state.questAnswers = {};
+  render();
+}
+
+function discoverTool(toolId) {
+  if (!state.discoveredTools.has(toolId)) {
+    state.discoveredTools.add(toolId);
+    addXP(25);
+    alert(`🎉 Outil découvert: ${TOOLS[toolId].name}!`);
+  }
+  render();
+}
+
+function unlockCombo(comboName) {
+  const combo = TOOL_COMBOS.find(c => c.name === comboName);
+  if (combo) {
+    addXP(combo.xpReward);
+    alert(`✨ Combo débloquée: ${comboName}!`);
+  }
+  render();
+}
+
+function completeChallenge(challengeId) {
+  if (!state.completedChallenges.has(challengeId)) {
+    const challenge = CHALLENGES.find(c => c.id === challengeId);
+    const leveledUp = addXP(challenge.xpReward);
+    state.completedChallenges.add(challengeId);
+
+    if (leveledUp) {
+      const newLevel = getLevel(state.userXP);
+      alert(`🎉 LEVEL UP! Tu es maintenant ${newLevel.title} (Niveau ${newLevel.level})`);
+    } else {
+      alert(`✅ Challenge complété! +${challenge.xpReward} XP`);
+    }
+  }
+  render();
+}
+
+function getNewSurprise() {
+  state.dailySurprise = getRandomSurprise();
+  render();
+}
+
+// Rendu principal
+function render() {
+  const app = document.getElementById('app');
+
+  let content = renderHeader() + renderNavTabs();
+  content += `<div class="container">`;
+
+  switch (state.currentTab) {
+    case 'quest':
+      content += renderQuestTab();
+      break;
+    case 'combos':
+      content += renderCombosTab();
+      break;
+    case 'challenges':
+      content += renderChallengesTab();
+      break;
+    case 'surprise':
+      content += renderSurpriseTab();
+      break;
+  }
+
+  content += `</div>`;
+  app.innerHTML = content;
+}
+
+window.addEventListener('load', () => {
+  state.dailySurprise = getRandomSurprise();
+  render();
+});
+    </script>
+</body>
+</html>
