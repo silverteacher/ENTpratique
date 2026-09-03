@@ -45,6 +45,22 @@ Le routing utilise `HashRouter` (URLs en `#/...`) : aucune configuration serveur
 
 Pour déclencher un déploiement manuellement sans nouveau commit : onglet **Actions** du dépôt → workflow *Deploy to GitHub Pages* → **Run workflow**.
 
+## Déploiement (GitLab Pages)
+
+Le dépôt inclut aussi `.gitlab-ci.yml` pour publier sur **GitLab Pages** en miroir de GitHub Pages. Contrairement à GitHub, il n'y a pas de réglage manuel à faire dans l'interface : GitLab publie automatiquement dès qu'un job nommé `pages` termine avec succès sur la branche par défaut.
+
+Pour mettre ce dépôt en miroir sur GitLab :
+
+1. Créer un projet **vide** sur [gitlab.com](https://gitlab.com) nommé exactement `ENTpratique` (même casse) — le `base` dans `vite.config.js` est codé en dur sur `/ENTpratique/`, donc un nom différent casserait le chargement des assets. Ne pas cocher "Initialize repository with a README".
+2. Ajouter le remote et pousser :
+   ```bash
+   git remote add gitlab https://gitlab.com/<ton-namespace>/ENTpratique.git
+   git push gitlab main
+   ```
+3. Le pipeline se lance automatiquement (onglet **CI/CD → Pipelines**). Une fois vert, le site est servi sous `https://<ton-namespace>.gitlab.io/ENTpratique/`.
+
+Si le projet GitLab doit porter un autre nom, adapter le `base` dans `vite.config.js` en conséquence (ou passer à un `base` calculé dynamiquement par variable d'environnement si les deux déploiements doivent coexister avec des noms différents).
+
 ## Structure du projet
 
 ```
